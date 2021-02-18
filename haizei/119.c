@@ -54,6 +54,9 @@ int main (void) {
             printf("%d %d %d\n", year, 2, 27);
             printf("%d %d %d", year, 2, 29);
             return 0;
+        } else {
+            printf("%d %d %d\n", year, 2, 27);
+            printf("%d %d %d", year, 3, 1);
         }
     } else if (day == 29) {
         printf("%d %d %d\n", year, month, day - 1);
