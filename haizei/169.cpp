@@ -8,38 +8,34 @@
 
 #include<iostream>
 #include <string>
-using namespace std;
-
-#define N 26
-#define M 30
-typedef struct Dic{
-    int value;
-    char ch;
-}Dic;
-Dic dics[N] = {0};
-string str;
-
-
-int solve(string str) {
-    int len = str.size();
-    char *p = str;
-    int result = 0;
-    for (int i = 0; i < len; i++) {
-        if (p[i] >= 'A' && p[i] <= 'Z') {
-            result += dics[p[i] - 'A'].value; 
-        }
-    }
-    return result;
-}
-int main (void) {
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+int main(void) {
     int n;
-    scanf("%d", &n);
-    char ch;
-    while (n--) {
-        cin >> ch;
-        cin >> dics[ch - 'A'].value;
+    cin >> n;
+    char dicA[n];
+    int dicD[n];
+    for (int i = 0; i < n; i++) {
+        cin >> dicA[i];
+        cin >> dicD[i];
     }
-    str = getline();
-    cout << solve(str);
+    string str;
+    cin >> str;
+    int result = 0;
+    int loc1 = -1, loc2 = 0;
+    for (int i = 0; i < n; ++i) {
+        while (loc2 != -1) {
+            loc2 = str.find(dicA[i], loc1 + 1);
+            loc1 = loc2;
+            if (loc2 == -1) {
+                break;
+            }
+            result += dicD[i];
+        }
+        loc2 = 0;
+    }
+    cout << result;
     return 0;
 }
