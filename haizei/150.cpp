@@ -10,22 +10,19 @@
 using namespace std;
 #define MAX_ROW 200
 #define MAX_COL 200
-class matrix{
-    public:
-    matrix(int _row, int _col) {
-        this->row = _row;
-        this->col = _col;
-        for (int i = 0; i < this->row * this->col; i++) {
-            cin >> this->data[i / col][i % col];
-        }
+short matrix[2][MAX_ROW][MAX_COL] = {0};
+int main(void) {
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < n * m; ++i) {
+        cin >> matrix[0][i / n][i % m];
     }
-    matrix* spin_clock(void) {
-        int temp[this->row * this->col] = {0};
-        for (int i = 0; i < this->row * this->col; i++) {
-           temp[i] = this->data[i % col] 
-        }
+    for (int i = 0; i < n * m; ++i) {
+        i % m && putchar(' ');
+        i % m == 0 && i && putchar('\n');
+        cout << matrix[0][i % n][m - 1 - i / m];
+//        matrix[1][i % m][n - 1 - i / m] = matrix[0][i / n][i % m];
+        cout << "[" << i % n << "][" << m - 1 - i / m << "]" << endl;
     }
-    private:
-    int data[MAX_ROW][MAX_COL];
-    int row, col;
-};
+    return 0;
+}
