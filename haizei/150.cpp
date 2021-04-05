@@ -15,14 +15,12 @@ int main(void) {
     int n, m;
     cin >> n >> m;
     for (int i = 0; i < n * m; ++i) {
-        cin >> matrix[0][i / n][i % m];
+        cin >> matrix[0][i / m][i % m];
     }
     for (int i = 0; i < n * m; ++i) {
-        i % m && putchar(' ');
-        i % m == 0 && i && putchar('\n');
-        cout << matrix[0][i % n][m - 1 - i / m];
-//        matrix[1][i % m][n - 1 - i / m] = matrix[0][i / n][i % m];
-        cout << "[" << i % n << "][" << m - 1 - i / m << "]" << endl;
+        i % n && putchar(' ');
+        i % n == 0 && i && putchar('\n');
+        printf("%d", matrix[0][n - 1 - i % n][i / n]);
     }
     return 0;
 }

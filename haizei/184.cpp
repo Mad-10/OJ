@@ -1,16 +1,21 @@
 /*************************************************************************
-	> File Name: 448.c
+	> File Name: 184.cpp
 	> Author: AlanIvan
 	> Mail: 2728946156@qq.com
 	> PhoneNumver: 18238908590
-	> Created Time: Sun 21 Mar 2021 07:45:44 PM CST
+	> Created Time: Mon 05 Apr 2021 07:57:43 PM CST
  ************************************************************************/
 
-#include<stdio.h>
-#include <stdlib.h>
-int main (void) {
+#include<iostream>
+using namespace std;
+
+int f(int n) {
+    if (n == 1) return 1;
+    return ( f(n - 1) + 1 ) * 2;
+}
+int main(void) {
     int n;
-    scanf("%d", &n);
-    int *numbers = (int *) calloc(n, sizeof(int));
+    cin >> n;
+    cout << f(n);
     return 0;
 }
