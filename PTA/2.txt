@@ -1,0 +1,10 @@
+abc:8
+abcd:15
+abcde:26
+abcdef:42
+abcdefg:64
+abcdefgh:93
+abcdefghi:130
+abcdefghij:176
+abcdefghijk:232
+abcdefghijkl:299

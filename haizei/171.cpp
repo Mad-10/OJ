@@ -6,25 +6,23 @@
 	> Created Time: Sat 03 Apr 2021 02:21:36 PM CST
  ************************************************************************/
 
-#include<iostream>
-#define A -1
-
-bool recycle_number(int n) {
-    int x = n, y = 0;
-    while (x) {
-        y = (y * 10) + (x % 10);
-        x /= 10;
-    }
-    return y == n;
-}
+#include <iostream>
+#include <algorithm>
+#include <string>
 int main(void) {
-    int m, n, temp = 0;
-    std::cin >> n;
-    m = n;
-    for (int i = 0; !recycle_number(m); i++) {
-        temp += (temp < 0) ? -(i & 1): (i & 1);
-        m = n + (temp *= A);
+    using std::string;
+    using std::cin;
+    using std::cout;
+    using std::endl;
+
+    union {
+        unsigned long long digit[56];
     }
-    std::cout << m;
+
+    string str;
+    cin >> str;
+    string str2 = str;
+    reverse(str.begin(), str.end());
+    cout << (str.compare(str2));
     return 0;
 }
